@@ -17,6 +17,8 @@ public class Program
         {
             options.UseInMemoryDatabase("InMemDb");
         });
+        // Add scoped repo service using Dependency Injection
+        builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
