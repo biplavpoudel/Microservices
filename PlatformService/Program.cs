@@ -23,6 +23,10 @@ public class Program
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
+
+        // Adding AutoMapper to map Models to DTOs
+        builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
         builder.Services.AddSwaggerGen(options =>
         {
             options.SwaggerDoc("v1", new OpenApiInfo
