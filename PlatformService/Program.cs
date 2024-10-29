@@ -45,9 +45,12 @@ public class Program
 
         app.UseAuthorization();
 
-
         app.MapControllers();
 
+        // Populating Database for testing and development
+        PrepDb.PrepPopulation(app);
+
         app.Run();
+
     }
 }
