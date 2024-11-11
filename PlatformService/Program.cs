@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using PlatformService.Data;
 using PlatformService.Models;
+using PlatformService.SyncDataServices.Http;
 
 namespace PlatformService;
 
@@ -19,6 +20,8 @@ public class Program
         });
         // Add scoped repo service using Dependency Injection
         builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
+
+        builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
