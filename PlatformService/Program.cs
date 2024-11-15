@@ -16,12 +16,14 @@ public class Program
         // Add services to the container.
 
         if (builder.Environment.IsProduction())
-        {
+        {   
+            Console.WriteLine("--> Using SQL Server...");
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("PlatformsConn"))); 
         }
         else
         {
+            Console.WriteLine("--> Using InMemory Database...");
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseInMemoryDatabase("InMemDb"));
         }
