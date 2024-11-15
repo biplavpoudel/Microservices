@@ -14,10 +14,18 @@ public class Program
         var builder = WebApplication.CreateBuilder(args);
 
         // Add services to the container.
-        builder.Services.AddDbContext<AppDbContext>(options => 
+
+        if (builder.Environment.IsProduction())
         {
-            options.UseInMemoryDatabase("InMemDb");
-        });
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("PlatformsConn"))); 
+        }
+        else
+        {
+            builder.Services.AddDbContext<AppDbContext>(options =>
+                options.UseInMemoryDatabase("InMemDb"));
+        }
+
         // Add scoped repo service using Dependency Injection
         builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
 
