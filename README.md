@@ -1,5 +1,5 @@
-This is a project intended for the author to learn the basics of Microservices using:
-ASP.NET WEB API, Docker, Kubernetes and RabbitMQ.
+This is a project intended for the author to learn the basics of event-driven Microservice Architecture using:
+ASP.NET WEB API, Docker, Kubernetes, RabbitMQ and gRPC.
 
 ## Prerequisites
 
