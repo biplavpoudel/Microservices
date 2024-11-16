@@ -1,4 +1,7 @@
 
+using CommandsService.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace CommandsService;
 
 public class Program
@@ -10,6 +13,9 @@ public class Program
         // Add services to the container.
         builder.Services.AddAuthorization();
         builder.Services.AddControllers();
+
+        builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMemDb"));
+        builder.Services.AddScoped<ICommandRepo, CommandRepo>();
 
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
