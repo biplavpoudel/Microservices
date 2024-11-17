@@ -78,6 +78,7 @@ public class PlatformsController : ControllerBase
         {
             var platformPublishDto = _mapper.Map<PlatformPublishDto>(platformReadDto);
             platformPublishDto.Event = "Platform Published";
+            _messageBusClient.PublishNewPlatform(platformPublishDto);
         }
         catch (Exception ex)
         {

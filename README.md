@@ -12,5 +12,5 @@ ASP.NET WEB API, Docker, Kubernetes, RabbitMQ and gRPC.
    - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) (v1.22+)
    - [NGINX Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
    - [SQL Server 2022](https://www.microsoft.com/en-us/sql-server/sql-server-downloads) (for Ubuntu, allow TCP)
-   - [RabbitMQ](https://www.rabbitmq.com/tutorials) (using Fanout Exchange)
+   - [RabbitMQ .NET Client](https://www.rabbitmq.com/client-libraries/dotnet-api-guide) (using Fanout Exchange)
    - [Metallb](https://metallb.universe.tf/installation/) (Addons for RabbitMQ)
