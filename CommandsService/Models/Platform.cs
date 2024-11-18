@@ -6,10 +6,10 @@ namespace CommandsService.Models;
 public class Platform
 {
     [Key]
-    public int Id { get; set; }
+    public int Id { get; set; } //assgined by database
 
     [Required]
-    public int ExternalId { get; set; }
+    public int ExternalId { get; set; } //to check for duplicity of platforms; comes from PlatformService
 
     [Required]
     public required string Name { get; set; }
