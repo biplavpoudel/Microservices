@@ -17,7 +17,7 @@ namespace PlatformService.AsyncDataServices
             var factory = new ConnectionFactory()
             {
                 HostName = _configuration["RabbitMQHost"],
-                Port = int.Parse(_configuration["RabbitMQPort"])
+                Port = int.Parse(_configuration["RabbitMQPort"]!)
             };
             try
             {
@@ -26,7 +26,7 @@ namespace PlatformService.AsyncDataServices
 
                 _channel.ExchangeDeclare(exchange: "trigger", type: ExchangeType.Fanout);
 
-                _connection.ConnectionShutdown += RabbitMQ_ConnectionShutdown;
+                _connection.ConnectionShutdown += RabbitMQ_ConnectionShutdown!;
 
                 Console.WriteLine("--> Connected to MessageBus");
 

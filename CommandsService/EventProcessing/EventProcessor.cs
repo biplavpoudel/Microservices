@@ -22,7 +22,7 @@ public class EventProcessor : IEventProcessor
         switch (eventType)
         {
             case EventType.PlatformPublished:
-                // TODO
+                AddPlatform(message);
                 break;
             default:
                 break;
@@ -35,9 +35,9 @@ public class EventProcessor : IEventProcessor
 
         var eventType = JsonSerializer.Deserialize<GenericEventDto>(notificationMessage);
 
-        switch (eventType!.Event)
+        switch (eventType.Event)
         {
-            case "PlatformPublished":
+            case "Platform Published": //this event is added in Platform Service!!!
                 Console.WriteLine("--> Platform Published Event Detected!");
                 return EventType.PlatformPublished;
             
