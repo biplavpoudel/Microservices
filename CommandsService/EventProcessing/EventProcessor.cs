@@ -64,6 +64,7 @@ public class EventProcessor : IEventProcessor
                 {
                     repo.CreatePlatform(platform);
                     repo.SaveChanges();
+                    Console.WriteLine("--> Platfrom added to db!");
                 }
                 else
                 {
