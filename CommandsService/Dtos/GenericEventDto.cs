@@ -2,5 +2,5 @@ namespace CommandsService.Dtos;
 
 public class GenericEventDto
 {
-    public string Event { get; set; }
+    public required string Event { get; set; }
 }
