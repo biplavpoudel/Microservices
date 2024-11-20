@@ -15,3 +15,8 @@ ASP.NET WEB API, Docker, Kubernetes, RabbitMQ and gRPC.
    - [RabbitMQ .NET Client](https://www.rabbitmq.com/client-libraries/dotnet-api-guide) (v6.2.2)
    - [Metallb](https://metallb.universe.tf/installation/) (Addons for RabbitMQ)
    - [gRPC .NET Client](https://learn.microsoft.com/en-us/aspnet/core/grpc/?view=aspnetcore-8.0) (v6.2.2)
+
+## Architecture
+
+![alt text](<kubernetes microservice1.png>)
+*Sourced from awesome tutor, [Les Jackson](https://www.youtube.com/@binarythistle)'s video on NET Microservices.*
