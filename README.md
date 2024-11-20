@@ -19,4 +19,4 @@ ASP.NET WEB API, Docker, Kubernetes, RabbitMQ and gRPC.
 ## Architecture
 
 ![alt text](<kubernetes microservice1.png>)
-*Sourced from awesome tutor, [Les Jackson](https://www.youtube.com/@binarythistle)'s video on NET Microservices.*
+*Sourced from awesome tutor, [Les Jackson](https://www.youtube.com/@binarythistle)'s video on .NET Microservices.*
