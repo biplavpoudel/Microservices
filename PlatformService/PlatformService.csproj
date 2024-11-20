@@ -24,4 +24,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.7.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Protobuf Include="Protos/platforms.proto" GrpcServices="Server" />
+  </ItemGroup>
+
 </Project>

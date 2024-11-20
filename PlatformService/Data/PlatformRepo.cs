@@ -19,7 +19,7 @@ public class PlatformRepo : IPlatformRepo
         _context.Platforms.Add(plat);
     }
 
-    public IEnumerable<Platform> GetAllPlatforms()
+    public IEnumerable<Platform> GetAllPlatforms()   //gRPC uses this to request all the platforms
     {
         return _context.Platforms.ToList();
     }
