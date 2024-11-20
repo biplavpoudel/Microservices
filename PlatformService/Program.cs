@@ -4,6 +4,7 @@ using Microsoft.OpenApi.Models;
 using PlatformService.AsyncDataServices;
 using PlatformService.Data;
 using PlatformService.Models;
+using PlatformService.SyncDataServices.gRPC;
 using PlatformService.SyncDataServices.Http;
 
 namespace PlatformService;
@@ -31,11 +32,11 @@ public class Program
 
         // Add scoped repo service using Dependency Injection
         builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
-
-        builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();
-                
+        builder.Services.AddHttpClient<ICommandDataClient, HttpCommandDataClient>();       
         builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
 
+        builder.Services.AddGrpc();
+    
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -66,6 +67,11 @@ public class Program
         app.UseAuthorization();
 
         app.MapControllers();
+        app.MapGrpcService<GrpcPlatformService>();
+        app.MapGet("/protos/platforms.proto", async context =>
+        {
+            await context.Response.WriteAsync(File.ReadAllText("protos/platforms.proto"));
+        });
 
         // Populating Database for testing and development
         PrepDb.PrepPopulation(app);
