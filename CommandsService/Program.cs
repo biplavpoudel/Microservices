@@ -1,4 +1,6 @@
 
+using CommandService.Data;
+using CommandService.SyncDataServices.gRPC;
 using CommandsService.AsyncDataServices;
 using CommandsService.Data;
 using CommandsService.EventProcessing;
@@ -19,10 +21,9 @@ public class Program
         builder.Services.AddDbContext<AppDbContext>(options => options.UseInMemoryDatabase("InMemDb"));
         builder.Services.AddScoped<ICommandRepo, CommandRepo>();
         builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
-
-        builder.Services.AddHostedService<MessageBusSubscriber>();
-
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        builder.Services.AddHostedService<MessageBusSubscriber>();
+        builder.Services.AddScoped<IPlatformDataClient, PlatformDataClient>();
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -41,6 +42,8 @@ public class Program
 
         app.UseAuthorization();
         app.MapControllers();
+
+        PrepDb.PrepPopulation(app);
 
         app.Run();
     }
